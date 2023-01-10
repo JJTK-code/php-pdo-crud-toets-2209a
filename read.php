@@ -26,7 +26,7 @@ $sql = "SELECT Id
               ,Model
               ,Topsnelheid
               ,Prijs
-        FROM DureAuto";
+        FROM dureauto";
 
 //Bereid de de query voor met de method prepare
 $statement = $pdo->prepare($sql);
@@ -42,25 +42,27 @@ $tableRows = "";
 
 foreach($result as $info) {
     $tableRows .= "<tr>
-                        <td>$info->Voornaam</td>
-                        <td>$info->Tussenvoegsel</td>
-                        <td>$info->Achternaam</td>
+                        <td>$info->Merk</td>
+                        <td>$info->Model</td>
+                        <td>$info->Topsnelheid</td>
+                        <td>$info->Prijs</td>
                         <td>
-                            <a href='delete.php'>
+                            <a href='delete.php?Id='>
                                 <img src='img/b_drop.png' alt='cross'>
                             </a>
                         </td>
                    </tr>";
 }
 ?>
-<h3>Persoonsgegevens</h3>
+<h3>De vijf duurste auto's ter wereld</h3>
 
 <table border='1'>
     <thead>
-        <th>Voornaam</th>
-        <th>Tussenvoegsel</th>
-        <th>Achternaam</th>
-        <th></th>
+        <th>Merk</th>
+        <th>Model</th>
+        <th>Topsnelheid</th>
+        <th>Prijs</th>
+        <th>Delete</th>
     </thead>
     <tbody>
         <?php echo $tableRows; ?>
